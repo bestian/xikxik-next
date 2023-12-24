@@ -406,7 +406,7 @@ var poetry = [
 export default {
   name: 'App',
   components: {
-    Ad,
+    //Ad,
   },
   data() {
     return {

@@ -1,20 +1,39 @@
-<template lang="pug">
-q-layout(view="lHh Lpr lFf")
-  q-header(elevated)
-    q-toolbar
-      q-btn(flat, dense, round, icon="menu", aria-label="Menu", @click="toggleLeftDrawer")
-      q-toolbar-title Quasar 小道一報
-      div v2.0.0
-  q-drawer(v-model="leftDrawerOpen", show-if-above, bordered)
-    q-list
-      q-item-label(header) Essential Links
-  q-page-container
-  router-view(:si="si",
-  :xikxik = "getXikxik()",
-  newsList = "getNewsList()",
-  :poet = "getPoet()",
-  @add="add", @del = "del", @reset = "reset", @addNews="addNews", @delNews = "delNews", @resetNews = "resetNews", @addPoet="addPoet", @delPoet = "delPoet", @resetPoet = "resetPoet", @reseter="reseter")
-  ad-be
+<template>
+  <q-layout view="lHh Lpr lFf">
+    <q-header elevated>
+      <q-toolbar>
+        <q-btn flat dense round icon="menu" @click="toggleLeftDrawer" />
+        <q-toolbar-title>Quasar 小道一報 v2.0.0</q-toolbar-title>
+      </q-toolbar>
+    </q-header>
+
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
+      <q-list>
+        <q-item-label header>Essential Links</q-item-label>
+        <!-- Populate with actual links or content -->
+      </q-list>
+    </q-drawer>
+
+    <q-page-container>
+      <router-view
+        :si="si"
+        :xikxik="getXikxik()"
+        :newsList="getNewsList()"
+        :poet="getPoet()"
+        @add="add"
+        @del="del"
+        @reset="reset"
+        @addNews="addNews"
+        @delNews="delNews"
+        @resetNews="resetNews"
+        @addPoet="addPoet"
+        @delPoet="delPoet"
+        @resetPoet="resetPoet"
+        @reseter="reseter"
+      ></router-view>
+      <ad-be />
+    </q-page-container>
+  </q-layout>
 </template>
 
 <script>
